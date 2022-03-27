@@ -3,14 +3,14 @@ import 'package:final_620710333/model/api_game.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
-  static const BASE_URL = 'https://cpsu-test-api.herokuapp.com'; // 1.เปลี่ยน URL
+  static const BASE_URL = 'https://cpsu-test-api.herokuapp.com';
 
   Future<dynamic> fetch(
       String endPoint, {
         Map<String, dynamic>? queryParams
       }) async {
     var url = Uri.parse('$BASE_URL/$endPoint');
-    final response = await http.get(url, headers: {'id': '620710333'}); // 2.เปลี่ยน id รหัสนักศึกษา
+    final response = await http.get(url, headers: {'id': '620710333'});
     if(response.statusCode == 200) {
       Map<String, dynamic> jsonBody = json.decode(response.body);
 
@@ -35,7 +35,7 @@ class Api {
     var url = Uri.parse('$BASE_URL/$endPoint');
     final response = await http.post(
       url,
-      headers: {'Content-Type': 'application/json', 'id': '620710333'}, // 3.เปลี่ยน id รหัสนักศึกษา
+      headers: {'Content-Type': 'application/json', 'id': '620710333'},
       body: jsonEncode(params),
     );
     if(response.statusCode == 200) {
